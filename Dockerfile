@@ -32,6 +32,8 @@ USER ${NB_USER}
 RUN    cd ${HOME} \
     && git clone https://github.com/f66blog/fortran8.git        \
     && ls -al \
+    && cd fortran8 \
+    && ls -al \
     && pip install --user ./jupyter-gfort-kernel          \
     && jupyter kernelspec install ./jupyter-gfort-kernel 
 
