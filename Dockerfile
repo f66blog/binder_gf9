@@ -31,8 +31,9 @@ ENV HOME /home/${NB_USER}
 USER ${NB_USER}
 RUN    cd ${HOME} \
     && git clone https://github.com/f66blog/fortran8.git        \
-    && pip install --user ${HOME}/jupyter-gfort-kernel          \
-    && jupyter kernelspec install ${HOME}/jupyter-gfort-kernel 
+    && ls -al \
+    && pip install --user ./jupyter-gfort-kernel          \
+    && jupyter kernelspec install ./jupyter-gfort-kernel 
 
 
 WORKDIR ${HOME}
