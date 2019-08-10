@@ -35,6 +35,6 @@ RUN    cd ${HOME} \
     && pip install --user ./jupyter-gfort-kernel          \
     && jupyter kernelspec install ./jupyter-gfort-kernel/gfort_spec --user 
 
-WORKDIR ${HOME}
+WORKDIR ${HOME}/binder_gf9
 
 
