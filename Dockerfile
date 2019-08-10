@@ -35,7 +35,7 @@ RUN    cd ${HOME} \
     && cd fortran8 \
     && ls -al \
     && pip install --user ./jupyter-gfort-kernel          \
-    && jupyter kernelspec install ./jupyter-gfort-kernel 
+    && jupyter kernelspec install ./jupyter-gfort-kernel --user 
 
 
 WORKDIR ${HOME}
