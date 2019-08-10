@@ -30,12 +30,10 @@ ENV HOME /home/${NB_USER}
 
 USER ${NB_USER}
 RUN    cd ${HOME} \
-    && git clone https://github.com/f66blog/fortran8.git        \
-    && ls -al \
-    && cd fortran8 \
-    && ls -al \
-    && pip install --user ./jupyter-gfort-kernel          \
-    && jupyter kernelspec install ./jupyter-gfort-kernel/gfort_spec --user 
+    && git clone https://github.com/f66blog/binder_gf9.git   \
+    && cd binder_gf9 \
+    && pip install --user .          \
+    && jupyter kernelspec install ./gfort_spec --user 
 
 WORKDIR ${HOME}
 
