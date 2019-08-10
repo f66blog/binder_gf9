@@ -3,10 +3,6 @@ FROM jupyter/scipy-notebook:cf6258237ff9
 USER root
 ENV GCC_VERSION 9.1.0
 
-ARG NB_USER
-ARG NB_UID
-ENV USER ${NB_USER}
-ENV HOME /home/${NB_USER}
 
 RUN    apt-get update -y \
     && apt-get install -y --no-install-recommends \
@@ -25,11 +21,20 @@ RUN    apt-get update -y \
     && gfortran --version \
     && apt-get clean \
     && apt-get purge -y --auto-remove ${transientBuildDeps} \
-    && rm -rf /var/lib/apt/lists/* /var/log/* /tmp/*        \  
+    && rm -rf /var/lib/apt/lists/* /var/log/* /tmp/*        
+
+ARG NB_USER
+ARG NB_UID
+ENV USER ${NB_USER}
+ENV HOME /home/${NB_USER}
+
+USER root
+RUN    chown -R ${NB_UID} ${HOME} \ 
     && cd ${HOME} \
     && git clone https://github.com/f66blog/fortran8.git        \
     && pip install --user ${HOME}/jupyter-gfort-kernel          \
     && jupyter kernelspec install ${HOME}/jupyter-gfort-kernel 
+USER ${NB_USER}
 
 
 WORKDIR ${HOME}
