@@ -22,16 +22,14 @@ RUN    apt-get update -y \
     && apt-get purge -y --auto-remove ${transientBuildDeps} \
     && rm -rf /var/lib/apt/lists/* /var/log/* /tmp/*
 
-RUN    git clone https://github.com/f66blog/fortran8.git \
-    && pip install -e ./jupyter-gfort-kernel             \
-    && jupyter kernelspec install ./jupyter-gfort-kernel 
-
-
 ARG NB_USER
 ARG NB_UID
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
 
+RUN    git clone https://github.com/f66blog/fortran8.git \
+    && pip install --user ${HOME}/jupyter-gfort-kernel          \
+    && jupyter kernelspec install ${HOME}/jupyter-gfort-kernel 
 WORKDIR ${HOME}
 
 
