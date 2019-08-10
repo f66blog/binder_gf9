@@ -28,13 +28,11 @@ ARG NB_UID
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
 
-USER root
-RUN    chown -R ${NB_UID} ${HOME} \ 
-    && cd ${HOME} \
+USER ${NB_USER}
+RUN    cd ${HOME} \
     && git clone https://github.com/f66blog/fortran8.git        \
     && pip install --user ${HOME}/jupyter-gfort-kernel          \
     && jupyter kernelspec install ${HOME}/jupyter-gfort-kernel 
-USER ${NB_USER}
 
 
 WORKDIR ${HOME}
