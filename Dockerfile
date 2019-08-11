@@ -1,4 +1,4 @@
-FROM python:3.7-slim
+FROM python:3.7
 
 USER root
 ENV GCC_VERSION 9.1.0
