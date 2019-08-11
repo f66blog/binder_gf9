@@ -10,6 +10,7 @@ RUN apt-get update -y && \
     software-properties-common && \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
     apt-get update -y && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv 1E9377A2BA9EF27F && \
     apt-get install -y --no-install-recommends --no-check-certificate \
     build-essential \
     gcc-9>=9.1.0 \
