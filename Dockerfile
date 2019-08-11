@@ -3,9 +3,10 @@ FROM python:3.7-slim
 USER root
 ENV GCC_VERSION 9.1.0
 
-RUN apt-get install -y  apt-utils && \
-    apt-get update -y && \
-    apt-get install -y  --no-install-recommends wget && \
+RUN apt-get update -y && \
+    apt-get install -y  apt-utils 
+
+RUN apt-get install -y  --no-install-recommends wget && \
     wget -q gnupg && \
     apt-key add gnupg 
 
