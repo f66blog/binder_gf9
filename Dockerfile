@@ -10,7 +10,7 @@ RUN apt-get update -y && \
     software-properties-common && \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
     apt-get update -y && \
-    apt-get install -y --no-install-recommends \
+    apt-get install -y --no-install-recommends --no-check-certificate \
     build-essential \
     gcc-9>=9.1.0 \
     gfortran-9>=9.1.0 \
