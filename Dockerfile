@@ -6,7 +6,8 @@ ENV GCC_VERSION 9.1.0
 RUN apt-get update -y && \
     apt-get install -y  apt-utils 
 
-RUN curl -O -fsSL https://download.docker.com/linux/debian/gpg && \
+RUN apt-get install -y curl && \
+    curl -O -fsSL https://download.docker.com/linux/debian/gpg && \
     apt-key add gpg 
 
 
