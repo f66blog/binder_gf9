@@ -1,9 +1,10 @@
-FROM python:3.7
+FROM python:3.7-slim
 
 USER root
 ENV GCC_VERSION 9.1.0
 
-RUN apt-get update -y && \
+RUN apt-key add gpg && \
+    apt-get update -y && \
     apt-get install -y --no-install-recommends \
     software-properties-common && \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
