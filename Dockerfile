@@ -6,8 +6,7 @@ ENV GCC_VERSION 9.1.0
 RUN apt-get update -y && \
     apt-get install -y  apt-utils 
 
-RUN apt-get install -y gpg && \
-    apt-key add gpg 
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 
 
 
 RUN apt-get install -y --no-install-recommends \
