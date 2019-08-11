@@ -6,7 +6,7 @@ ENV GCC_VERSION 9.1.0
 RUN apt-get update -y && \
     apt-get install -y  apt-utils 
 
-RUN apt-get install -y  --no-install-recommends wget && \
+RUN apt-get install -y  wget && \
     wget -q gnupg && \
     apt-key add gnupg 
 
