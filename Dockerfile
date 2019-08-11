@@ -5,7 +5,7 @@ ENV GCC_VERSION 9.1.0
 
 RUN apt-get update -y && \
     apt-get install -y apt-utils && \
-    apt-get install -y apt-transport-https curl software-properties-common
+    apt-get install -y apt-transport-https curl software-properties-common gnupg gnupg2 
 
 
 RUN apt-get install -y --no-install-recommends \
