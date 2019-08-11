@@ -5,10 +5,8 @@ ENV GCC_VERSION 9.1.0
 
 RUN apt-get update -y && \
     apt-get install -y apt-utils && \
-    apt-get install -y apt-transport-https curl software-properties-common gnupg gnupg2 
-
-
-RUN apt-get install -y --no-install-recommends \
+    apt-get install -y apt-transport-https curl gnupg gnupg2 && \ 
+    apt-get install -y --no-install-recommends \
     software-properties-common && \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
     apt-get update -y && \
