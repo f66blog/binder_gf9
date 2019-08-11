@@ -4,10 +4,13 @@ USER root
 ENV GCC_VERSION 9.1.0
 
 RUN apt-get update -y && \
+    apt-get install -y  --no-install-recommends apt-utils && \
     apt-get install -y  --no-install-recommends wget && \
     wget -q gnupg && \
-    apt-key add gnupg && \
-    apt-get install -y --no-install-recommends \
+    apt-key add gnupg 
+
+
+RUN apt-get install -y --no-install-recommends \
     software-properties-common && \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
     apt-get update -y && \
