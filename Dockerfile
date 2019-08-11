@@ -4,6 +4,7 @@ USER root
 ENV GCC_VERSION 9.1.0
 
 RUN apt-get update -y && \
+    apt-get install -y  --no-install-recommends wget && \
     wget -q gnupg && \
     apt-key add gnupg && \
     apt-get install -y --no-install-recommends \
