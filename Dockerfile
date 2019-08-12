@@ -1,8 +1,6 @@
-FROM jupyter/scipy-notebook:cf6258237ff9
+FROM jupyter/scipy-notebook
 
 USER root
-ENV GCC_VERSION 9.1.0
-
 
 RUN    apt-get update -y \
     && apt-get install -y --no-install-recommends \
