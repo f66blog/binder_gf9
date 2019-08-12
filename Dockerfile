@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -yq && \
     apt-get install -yq apt-utils && \
-    apt-get install -yq apt-transport-https curl gnupg gnupg2 && \ 
+    apt-get install -yq apt-transport-https curl gnupg gnupg2 wget && \ 
     apt-get install -yq --no-install-recommends \
     software-properties-common && \
     wget https://download.docker.com/linux/ubuntu/gpg && \
