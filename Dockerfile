@@ -1,17 +1,17 @@
 FROM python:3.7-slim
 
 USER root
-ENV GCC_VERSION 9.1.0
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update -y && \
-    apt-get install -y apt-utils && \
-    apt-get install -y apt-transport-https curl gnupg gnupg2 && \ 
-    apt-get install -y --no-install-recommends \
+RUN apt-get update -yq && \
+    apt-get install -yq apt-utils && \
+    apt-get install -yq apt-transport-https curl gnupg gnupg2 && \ 
+    apt-get install -yq --no-install-recommends \
     software-properties-common && \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv 1E9377A2BA9EF27F && \
-    add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
-    apt-get update -y && \
-    apt-get install -y --no-install-recommends --no-check-certificate \
+    apt-key adv -yq --keyserver keyserver.ubuntu.com --recv 1E9377A2BA9EF27F && \
+    add-apt-repository ppa:ubuntu-toolchain-r/test -yq && \
+    apt-get update -yq && \
+    apt-get install -yq --no-install-recommends --no-check-certificate \
     build-essential \
     gcc-9>=9.1.0 \
     gfortran-9>=9.1.0 \
@@ -22,7 +22,7 @@ RUN apt-get update -y && \
     gcc --version && \
     gfortran --version && \
     apt-get clean && \
-    apt-get purge -y --auto-remove ${transientBuildDeps} && \
+    apt-get purge -yq --auto-remove ${transientBuildDeps} && \
     rm -rf /var/lib/apt/lists/* /var/log/* /tmp/*        
 
 # install the notebook package
