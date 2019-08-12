@@ -8,7 +8,7 @@ RUN apt-get update -yq && \
     apt-get install -yq apt-transport-https curl gnupg gnupg2 && \ 
     apt-get install -yq --no-install-recommends \
     software-properties-common && \
-    apt-key adv -yq --keyserver keyserver.ubuntu.com --recv 1E9377A2BA9EF27F && \
+    apt-key adv  --keyserver keyserver.ubuntu.com --recv 1E9377A2BA9EF27F > /dev/null && \
     add-apt-repository ppa:ubuntu-toolchain-r/test -yq && \
     apt-get update -yq && \
     apt-get install -yq --no-install-recommends --no-check-certificate \
