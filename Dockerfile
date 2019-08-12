@@ -8,9 +8,8 @@ RUN apt-get update -yq && \
     apt-get install -yq apt-transport-https curl gnupg gnupg2 wget && \ 
     apt-get install -yq --no-install-recommends \
     software-properties-common && \
-    wget https://download.docker.com/linux/ubuntu/gpg && \
-    apt-key add gpg && \
-    add-apt-repository ppa:ubuntu-toolchain-r/test -yq 
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
+    add-apt-repository -y ppa:ubuntu-toolchain-r/test  
     
 RUN apt-get update -yq && \
     apt-get install -yq --no-install-recommends --no-check-certificate \
